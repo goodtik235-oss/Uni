@@ -1,0 +1,8 @@
+{
+  "name": "EduIntelligence Pakistan",
+  "description": "A strategic monitoring system for UNICEF Pakistan to track school infrastructure, collect community feedback, and generate AI-driven educational insights using the Gemini Live API.",
+  "requestFramePermissions": [
+    "microphone",
+    "geolocation"
+  ]
+}
