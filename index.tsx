@@ -1,22 +1,17 @@
 
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import { createRoot } from 'react-dom/client';
 import App from './App';
 
-// Safely ensure process.env exists to prevent white screen crashes in environments 
-// where the variable might not be shimmed yet during initial script execution.
-if (typeof (window as any).process === 'undefined') {
-  (window as any).process = { env: { API_KEY: '' } };
-}
+const container = document.getElementById('root');
 
-const rootElement = document.getElementById('root');
-if (!rootElement) {
-  throw new Error("Could not find root element to mount to");
+if (container) {
+  const root = createRoot(container);
+  root.render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  );
+} else {
+  console.error("Critical Error: Root container not found. The application cannot start.");
 }
-
-const root = ReactDOM.createRoot(rootElement);
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
